@@ -1,12 +1,9 @@
-import React    from 'react'
-import ReactDOM from 'react-dom'
+import React      from 'react'
+import ReactDOM   from 'react-dom'
+import EventsList from './EventsList'
 
 const Eventlite = props => (
-  <div>
-    {props.events.map(function(event) {
-      return(<div className='event'>{event.title}</div>)
-    })}
-  </div>
+  <div><EventsList events={props.events} /></div>
 )
 
 document.addEventListener('DOMContentLoaded', () => {
