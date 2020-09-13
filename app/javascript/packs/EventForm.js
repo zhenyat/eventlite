@@ -33,6 +33,7 @@ class EventForm extends Component {
       }
     })
     .then(response => {
+      this.props.handleNewEvent(response.data)
       console.log(response)
     })
     .catch(error => {
