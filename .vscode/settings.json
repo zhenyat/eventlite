@@ -3,5 +3,8 @@
     "datetime",
     "eventlite",
     "learnetto"
+  ],
+  "cSpell.ignoreWords": [
+    "binded"
   ]
 }
