@@ -7,7 +7,8 @@ const EventForm = (props) => (
       <input type='text' name='title' placeholder='Title' value={props.title} onChange={props.handleInput}/>
       <input type='text' name='start_datetime' placeholder='Date' value={props.start_datetime} onChange={props.handleInput}/>
       <input type='text' name='location' placeholder='Location' value={props.location} onChange={props.handleInput}/>
-      <button type="submit">Create Event</button>
+      <input type='submit' value='Create Event' disabled={!props.formValid} />
+      {/* <button type="submit">Create Event</button> */}
     </form>
   </div>
 )

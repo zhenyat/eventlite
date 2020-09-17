@@ -14,16 +14,27 @@ class Eventlite extends Component {
       title: '',
       start_datetime: '',
       location: '',
-      formErrors: {}
+      formErrors: {},
+      formValid: false
     }
   }
 
   handleInput = e =>  {
+    e.preventDefault()
     const name = e.target.name
     const newState ={}
     newState[name] = e.target.value
-    this.setState(newState)
-    e.preventDefault()
+    this.setState(newState, this.validateForm)
+    console.log(this.formValid)
+  }
+
+  validateForm() {
+    this.setState({
+      formValid: 
+        this.state.location.length > 0 &&
+        this.state.title.length > 2 &&
+        Date.parse(this.state.start_datetime) > Date.now()
+    })
   }
 
   handleSubmit = e => {
@@ -69,6 +80,7 @@ class Eventlite extends Component {
         <FormErrors formErrors={this.state.formErrors} />
         <EventForm handleSubmit={this.handleSubmit}
           handleInput = {this.handleInput}
+          formValid = {this.state.formValid}
           title = {this.state.title}
           start_datetime = {this.state.start_datetime}
           location = {this.state.location}
