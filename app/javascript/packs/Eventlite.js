@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 
@@ -121,7 +122,11 @@ class Eventlite extends Component {
     )
   }
 }
- 
+
+Eventlite.propsTypes = {
+  event: PropTypes.string.isRequired
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const node = document.getElementById('events_data')
   const data = JSON.parse(node.getAttribute('data'))
