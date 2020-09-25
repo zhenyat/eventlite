@@ -12,6 +12,9 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'mini_racer', platforms: :ruby  # ZT
 gem 'rack-cors'
+gem 'devise'
+gem 'devise_token_auth'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
