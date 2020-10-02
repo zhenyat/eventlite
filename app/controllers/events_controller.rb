@@ -14,8 +14,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @event = Event.find(params[:id])
+    # render json: @event
+    render json: @event.as_json(except: :user_id, include: {user: {only: [:name, :nickname, :image]}})
+  end
+  
   private
   def event_params
-    params.require(:event).permit(:title, :start_datetime, :location)
+    params.require(:event).permit(:title, :start_datetime, :location, :description, :image_url)
   end
 end
