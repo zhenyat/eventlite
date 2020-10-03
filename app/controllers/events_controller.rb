@@ -19,6 +19,15 @@ class EventsController < ApplicationController
     render json: @event.as_json(except: :user_id, include: {user: {only: [:name, :nickname, :image]}}).merge(currentUserCanEdit: @event.user.email == request.headers['uid'])
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    if @event.destroy
+      head :no_content, status: :ok
+    else
+      render json: @event.errors, status: :unprocessable_entity
+    end
+  end
+  
   def update
     @event = current_user.events.find(params[:id])
     if @event.update(event_params)
